@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Thoke | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-placeholder {
+            font-size: 3rem;
+            color: var(--gray);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255,255,255,0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            justify-content: center; /* Horizontal center */
+             align-items: center;
+        }
+        
+        .info-list {
+            margin-top: 1.5rem;
+        }
+        
+        .info-list div {
+            margin-bottom: 0.8rem;
+        }
+        
+        .info-list i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .interests {
+            margin-top: 2rem;
+        }
+        
+        .interests h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .interest-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .interest-item {
+            background-color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .interest-item i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 30px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content ul {
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content ul li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-date {
+            color: var(--gray);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .project-info p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-item {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: var(--light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-details i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-right: 0;
+                margin-left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-placeholder">
+                    
+                </div>
+                <!-- Replace with your image later -->
+                <img src="Untitled design.png" alt="Suraj Thoke">
+            </div>
+            <h1>Suraj Thoke</h1>
+            <p>Computer Engineering Student | Python Developer | Web Developer | Cyber Security Enthusiast</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/surajthoke2a94b628b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/SurajThoke" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:surajthoke06@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+917758835319"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p style="justify-content: center; align-items: center;">Computer Engineering student with a passion for innovation and technology. Currently pursuing a B-Tech degree with a focus on software development and keen on applying theoretical knowledge to real-world challenges.
+                         </p>
+                    <p>I'm also a Cyber Security Enthusiast with hands-on experience in Python development, web technologies, and building practical applications.</p>
+                    
+                    <div class="info-list">
+                        <div>
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Date of Birth: [Your Birth Date]</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Location: Bhusawal, Maharashtra, India</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: surajthoke06@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>Phone: +91 7758835319</span>
+                        </div>
+                    </div>
+                    
+                    <div class="interests">
+                        <h3>Interests</h3>
+                        <div class="interest-items">
+                            <div class="interest-item">
+                                <i class="fas fa-code"></i>
+                                <span>Programming</span>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Cyber Security</span>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-robot"></i>
+                                <span>AI/ML</span>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-globe"></i>
+                                <span>Web Development</span>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Gaming</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- You can add another image here if needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Python Programming Intern</h3>
+                        <h4>Octanet</h4>
+                        <div class="timeline-date">May 2024 – June 2024</div>
+                        <ul>
+                            <li>Collaborated on Python-based applications, focusing on API integration to enhance functionality and user experience.</li>
+                            <li>Created documentation for Python code and workflows to improve clarity and usability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i style="font-size: 3rem;"><img src="Picture1.png" width="330" height="210" alt="pro-1"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Secure e-voting with facial Recognition using AI</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">React.js</span>
+                            <span class="tech-item">TypeScript</span>
+                            <span class="tech-item">Tailwind CSS</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Node.js</span>
+                        </div>
+                        <p>Developed a full-stack web app combining React.js frontend with a Python-based backend. Implemented real-time webcam image capture using Python for potential facial recognition features.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i  style="font-size: 3rem;"><img src="pro2(new).svg" width="330" height="210" alt="pro-2"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>YouTube Video Downloader</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML</span>
+                            <span class="tech-item">CSS</span>
+                            <span class="tech-item">JavaScript</span>
+                            <span class="tech-item">REST API</span>
+                        </div>
+                        <p>Built a responsive web app using HTML, CSS, and JavaScript to fetch and display YouTube video details via REST API and enable format-wise downloading (audio/video).</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i  style="font-size: 3rem;"><img src="pro3.jpg" width="330" height="190" alt="pro-1"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Color Detection Using Python</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">OpenCV</span>
+                        </div>
+                        <p>Built an app to detect color names by clicking on screen points.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i style="font-size: 3rem;"><img src="pro4.jpg" width="330" height="210" alt="pro-1"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>ATM Interface Using Python</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">File I/O</span>
+                        </div>
+                        <p>Developed an ATM simulation with basic banking operations and file-based account management.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i  style="font-size: 3rem;"><img src="pro5.jpg" width="330" height="210" alt="pro-1"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Instagram Bot using Python</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">Automation</span>
+                            <span class="tech-item">Selenium</span>
+                        </div>
+                        <p>An automated bot to like posts, follow/unfollow users, and send messages on Instagram using Python.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>C</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>ReactJS</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MySQL</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PLSQL</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MongoDB</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Data Structures & Algorithms</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git/Version Control</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>API Integration</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Technology (Computer Engineering)</h3>
+                        <h4>R. C. Patel Institute of Technology, Shirpur, Maharashtra</h4>
+                        <div class="timeline-date">[Year] - Present</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>12th Science (HSC)</h3>
+                        <h4>P. O. Nahata College, Bhusawal, Maharashtra</h4>
+                        <div class="timeline-date">[Year] - [Year]</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>10th (SSC)</h3>
+                        <h4>Maharana Pratap Vidyalaya, Bhusawal, Maharashtra</h4>
+                        <div class="timeline-date">[Year] - [Year]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #f0f8ff;">
+                        <i class="fas fa-certificate" style="font-size: 3rem; color: #4682b4;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>ESDP and Soft Skill training</h3>
+                        <p>Completed from Zensar Technologies</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #fff0f5;">
+                        <i class="fab fa-udemy" style="font-size: 3rem; color: #ec5252;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Web Development</h3>
+                        <p>Udemy Certification</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #f0fff0;">
+                        <i class="fab fa-udemy" style="font-size: 3rem; color: #ec5252;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Python Programming</h3>
+                        <p>Udemy Certification</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #f5f5f5;">
+                        <i class="fab fa-udemy" style="font-size: 3rem; color: #ec5252;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>ReactJS</h3>
+                        <p>Udemy Certification</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #f0f8ff;">
+                        <i class="fab fa-udemy" style="font-size: 3rem; color: #ec5252;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>NodeJS</h3>
+                        <p>Udemy Certification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bhusawal, Maharashtra, India</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>surajthoke06@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 7758835319</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="https://www.linkedin.com/in/surajthoke2a94b628b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/SurajThoke" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:surajthoke06@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+917758835319"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Suraj Thoke. All Rights Reserved.</p>
+            <p>Designed with ❤️ by Suraj Thoke</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
